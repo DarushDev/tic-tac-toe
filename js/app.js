@@ -291,6 +291,58 @@ $(document).ready(function(){
         return false;
     }
 
+    function areOppositeCornersBlocked(arr){
+        for(var i=0; i<oppositeCorners.length; i++){
+            var counter = 0;
+            for(var j=0; j<oppositeCorners[i].length; j++){
+                if(arr.indexOf(oppositeCorners[i][j]) !== -1){
+                    counter++;
+                }
+            }
+
+            if(counter === 2){
+                var button;
+                for(var k=0; k<edges.length; k++){
+                    button = $("#btn"+edges[k]);
+                    if(button.is(":empty")){
+                        button.trigger("click");
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    function isTwoInARow(arr){
+        loop1:
+            for(var i=0; i<winSituations.length; i++){
+
+                var tempArray = [];
+                for(var j=0; j<winSituations[i].length; j++){
+                    if(arr.indexOf(winSituations[i][j]) !== -1){
+                        tempArray.push(winSituations[i][j]);
+                    }
+                }
+
+                if(tempArray.length === 2){
+                    var button;
+                    for(var k=0; k<winSituations[i].length; k++){
+                        if(tempArray.indexOf(winSituations[i][k]) === -1){
+                            button = $("#btn"+winSituations[i][k]);
+                            if(button.is(':empty')){
+                                button.trigger("click");
+                                return true;;
+                            }
+                        }
+                    }
+                }
+            }
+
+        return false;
+
+    }
+
 
 
 });
