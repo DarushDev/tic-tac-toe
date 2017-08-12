@@ -69,3 +69,92 @@ body {
     background-color:#020202;
     color:#fff;
 }
+
+#play-screen{
+    display:none;
+}
+
+#score-box{
+    width:400px;
+    height:50px;
+    background-color:#020202;
+    text-align:center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display:table;
+}
+
+.cell{
+    width:33%;
+    vertical-align:middle;
+    display:table-cell;
+}
+
+#score{
+    background-color:#151515;
+    color:#fff;
+    font-size: 1.5em;
+}
+
+.turn{
+    width: 100%;
+    text-align:center;
+    margin: 40px auto;
+    color:#565656;
+    font-size: 1.5em;
+    line-height: 90px;
+}
+
+#main-div {
+    background-color: #020202;
+    width: 400px;
+    height:400px;
+    margin: auto;
+}
+
+.button {
+    margin-right:20px;
+    margin-left:20px;
+    display:inline-block;
+    width:20%;
+    height: 65%;
+    text-align:center;
+    border: 4px solid gray;
+    background-color: #252525;
+    border-radius: 10px;
+}
+
+.button:hover {
+    cursor:pointer;
+}
+
+.button-hover:hover {
+    background-color: #303030 !important;
+    cursor:pointer;
+}
+
+.button i{
+    color:#fff;
+    display: table-cell;
+    text-align:center;
+    padding-left:13px;
+    padding-top:7px;
+}
+
+.fa-circle-o{
+    color:#DE202E !important;
+}
+
+.fa-times{
+    color:#285BAA !important;
+    width:55px;
+}
+
+.row {
+    margin: auto;
+    height: 30%;
+    width: 100%;
+    display:inline-block;
+    text-align:center;
+    line-height:230px;
+}
