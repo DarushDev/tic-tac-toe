@@ -70,5 +70,69 @@ $(document).ready(function(){
         });
     });
 
+    repeatButton.click(function(){
+        rotateButton($(this));
+        repeatTheGame();
+    });
+
+    resetButton.click(function(){
+        rotateButton($(this));
+        circleScore = 0;
+        crossScore = 0;
+        score.text(circleScore + " - " + crossScore);//update score board
+        playScreen.fadeOut(500).promise().then(function(){
+            firstScreen.fadeIn(500);
+        });
+        repeatTheGame();
+    });
+
+    function attachClickEvents(){
+        var movesCounter = 0;
+        for(var i=1; i<=9; i++){
+
+            $("#btn"+i).off("click").one("click",function(){
+                movesCounter++;
+                if(isCircleTurn) {//Circle's turn
+                    appendASymbol($(this), circle);
+                    showPlayerTurn();
+                    circleArray.push(parseInt($(this).attr("value")));
+                    isCircleTurn = false;
+
+                    if(isThreeInARow(circleArray)){//if won the game
+                        changeMainText('<i class="fa fa-circle-o fa-2x" aria-hidden="true" id="player-turn"></i><span class="turn"> wins</span>');
+                        $(".button").off(); //disable click listener
+                        circleScore++; //increase circle score
+                        score.text(circleScore + " - " + crossScore); //update score board
+                    } else if(movesCounter >= 9){
+                        changeMainText('<span class="turn">It&apos;s a draw</span>');
+                        $(".button").off();//disbale click listener
+                    }
+
+                } else {//Cross's turn
+
+                    appendASymbol($(this), cross);
+                    showPlayerTurn();
+                    crossArray.push(parseInt($(this).attr("value")));
+                    isCircleTurn = true;
+
+                    if(isThreeInARow(crossArray)){//If won the game
+                        changeMainText('<i class="fa fa-times fa-2x" aria-hidden="true" id="player-turn"></i><span class="turn"> wins</span>');
+                        $(".button").off(); //disable further clicks
+                        crossScore++;// increse cross score
+                        score.text(circleScore + " - " + crossScore);//update score board
+                    } else if(movesCounter >= 9){
+                        changeMainText('<span class="turn">It&apos;s a draw</span>');
+                        $(".button").off();
+                    }
+
+                }
+
+            });
+
+        }
+
+    }
+
+
 
 });
