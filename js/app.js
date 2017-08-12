@@ -133,6 +133,42 @@ $(document).ready(function(){
 
     }
 
+    function isThreeInARow(arr) {
+        var counter;
+        for (var i=0; i<winSituations.length; i++) {
+
+            counter = [];
+            for (var j=0; j<winSituations[i].length; j++) {
+                if (arr.indexOf(winSituations[i][j]) !== -1) {
+                    counter.push(winSituations[i][j]);
+                }
+            }
+
+            if(counter.length === 3){ //if three in a row
+                highlightThreeRows(counter);//highlight the three rows
+                counter = [];//reset the array that holds the three rows
+                $(".button").removeClass("button-hover");//remove the hover effect from all buttons
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    function rotateButton(button){
+        button.rotate({
+            angle: 0,
+            animateTo:360,
+            easing: $.easing.easeInOutElastic
+        });
+    }
+
+    function highlightThreeRows(arr){
+        for(var i=0; i<arr.length; i++){
+            $("#btn"+arr[i]).css("background-color","#fff");
+        }
+    }
+
 
 
 });
