@@ -169,6 +169,30 @@ $(document).ready(function(){
         }
     }
 
+    function repeatTheGame() {
+        $(".button").addClass("button-hover");
+        $(".button").children().fadeOut(500).promise().then(function() {
+            $(".button").empty();
+            $(".button").css("background-color","#252525");
+
+            circleArray = [];
+            crossArray = [];
+            mainText.empty();
+
+            if(isCircleTurn){
+                mainText.append('<span class="turn">It&apos;s </span><i class="fa fa-circle-o fa-2x" aria-hidden="true" id="player-turn"></i><span class="turn"> turn!</span>');
+            } else {
+                mainText.append('<span class="turn">It&apos;s </span><i class="fa fa-times fa-2x" aria-hidden="true" id="player-turn"></i><span class="turn"> turn!</span>');
+            }
+
+            attachClickEvents();
+            if($("#computer").is(":checked")) {
+                playWithComputer();
+            }
+        });
+
+    }
+
 
 
 });
