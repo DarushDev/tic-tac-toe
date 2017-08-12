@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/html5tooltipsjs/1.7.1/html5tooltips.animation.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/html5tooltipsjs/1.7.1/html5tooltips.animation.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5tooltipsjs/1.7.1/html5tooltips.min.js"></script>
@@ -12,6 +13,35 @@
     <script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
+<div id="first-screen-wrapper">
+
+    <div id="first-screen" class="raisedbox">
+        <h3>Play against:</h3>
+
+        <div id="top-wrapper">
+            <label for="computer">
+                <input type="radio" value="computer" name="against" id="computer" checked> <span>Computer</span>
+            </label>
+            <label for="human">
+                <input type="radio" value="human" name="against" id="human"> <span>Human</span>
+            </label>
+        </div>
+
+        <hr>
+        <h3>Choose your mark:</h3>
+        <div id="bottom-wrapper">
+            <i class="fa fa-circle-o fa-3x selected" aria-hidden="true"></i>
+            <i class="fa fa-times fa-3x button-hover" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <div id="play-button-wrapper" class="raisedbox">
+        <div id="play-button">Play</div>
+    </div>
+
+</div>
+
+
 
 </body>
 </html>
