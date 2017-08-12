@@ -251,6 +251,46 @@ $(document).ready(function(){
 
     }
 
+    function isAnyCornerFree(arr) {
+
+    }
+
+    function makeARandomSelection(){
+        var emptyButtons = [];
+        for(var i=1; i<=9; i++){
+            if($("#btn"+i).is(":empty")){
+                emptyButtons.push(i);
+            }
+        }
+
+        if(emptyButtons.length>0){
+            $("#btn" + emptyButtons[Math.floor(Math.random() * emptyButtons.length)]).trigger("click");
+        }
+
+    }
+
+    function makeAThreat(arr){
+        for (var i=0; i<winSituations.length; i++) {
+            var tempArr = winSituations[i].slice(0);
+            for (var j=0; j<winSituations[i].length; j++) {
+                var index = arr.indexOf(winSituations[i][j]);
+                if (index > -1) {
+                    tempArr.splice(j, 1);
+                }
+            }
+
+            if (tempArr.length === 2) {
+                if($("#btn" + tempArr[0]).is(":empty") && $("#btn" + tempArr[1]).is(":empty")){
+                    $("#btn" + tempArr[Math.floor(Math.random() * 2)]).trigger("click");
+                    return true;
+                }
+            }
+
+        }
+
+        return false;
+    }
+
 
 
 });
