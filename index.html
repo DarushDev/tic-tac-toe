@@ -41,7 +41,42 @@
 
 </div>
 
+<div id="play-screen">
+    <div class="turn" id="turn-main">
+        <div class="turn">It's <i class="fa fa-circle-o fa-lg" aria-hidden="true" id="player-turn"></i> turn!</div>
+    </div>
 
+    <div id="score-box" class="raisedbox">
+        <i class="fa fa-circle-o fa-2x cell"></i>
+        <div class="cell" id="score">0 - 0</div>
+        <i class="fa fa-times fa-2x cell"></i>
+    </div>
+
+    <div id="main-div" class="raisedbox">
+        <div class="row">
+            <div id="btn1" class="button button-hover" value="1"></div>
+            <div id="btn2" class="button button-hover" value="2"></div>
+            <div id="btn3" class="button button-hover" value="3"></div>
+        </div>
+        <div class="row">
+            <div id="btn4" class="button button-hover" value="4"></div>
+            <div id="btn5" class="button button-hover" value="5"></div>
+            <div id="btn6" class="button button-hover" value="6"></div>
+        </div>
+        <div class="row">
+            <div id="btn7" class="button button-hover" value="7"></div>
+            <div id="btn8" class="button button-hover" value="8"></div>
+            <div id="btn9" class="button button-hover" value="9"></div>
+        </div>
+
+    </div>
+
+    <div id="buttons" class="turn" data-tooltip-animate-function="foldin" data-tooltip-color="#fff"
+         data-tooltip-delay="100">
+        <i class="fa fa-repeat fa-2x btn" aria-hidden="true" id="repeat" data-tooltip="Repeat"></i>
+        <i class="fa fa-refresh fa-2x btn" aria-hidden="true" id="reset" data-tooltip="Reset All"></i>
+    </div>
+</div>
 
 </body>
 </html>
