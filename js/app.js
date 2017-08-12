@@ -343,6 +343,27 @@ $(document).ready(function(){
 
     }
 
+    function appendASymbol(tag, symbol){
+        var temp = $(symbol).hide();
+        tag.append(temp);
+        temp.show('fast');
+    }
 
+    function showPlayerTurn(mark){
+        if(mark === circle){
+            $("#player-turn").css({"padding":"0 !important"}).slideUp("normal",function(){//toggle with a sliding animation
+                $(this).toggleClass("fa-circle-o fa-times").slideDown("normal");
+            });
+        } else {
+            $("#player-turn").css({"padding":"0 !important"}).slideUp("normal",function(){//toggle with a sliding animation
+                $(this).toggleClass("fa-circle-o fa-times").slideDown("normal");
+            });
+        }
+    }
+
+    function changeMainText(text){
+        mainText.empty();
+        mainText.append(text);
+    }
 
 });
