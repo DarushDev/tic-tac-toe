@@ -193,6 +193,64 @@ $(document).ready(function(){
 
     }
 
+    var humanArray = [];
+    var computerArray = [];
+    var corners = [1,3,7,9];
+    var center = 5;
+    var edges = [2,4,6,8];
+    var oppositeCorners = [[1,9],[3,7]];
+
+    function playWithComputer() {
+        var clickCounter = 0;
+
+        $(".button").click(function(){
+            console.log("clicked");
+            clickCounter++;
+            if(playerSymbol === "cross"){
+                computerArray = circleArray;
+                humanArray = crossArray;
+                isComputerTurn = isCircleTurn;
+            } else {
+                computerArray = crossArray;
+                humanArray = circleArray;
+                isComputerTurn = !isCircleTurn;
+            }
+
+            if(clickCounter < 9){
+                if(isComputerTurn){
+                    if(clickCounter === 1){
+                        if($("#btn"+center).children().length === 0){
+                            $("#btn5").trigger("click");
+                        } else {
+                            $("#btn" + corners[Math.floor(Math.random()*corners.length)]).trigger("click");
+                        };
+                    } else {
+
+                        if(!isTwoInARow(computerArray)){ //check if you have 2 in a row to make it 3.
+                            if(!isTwoInARow(humanArray)){ //check if opponent has 2 in a row, to block it.
+                                if(!areOppositeCornersBlocked(humanArray)){//prevent fork if two corners are blocked
+                                    if(!makeAThreat(computerArray)){//Make a threat by checking if there are two empty rows
+                                        makeARandomSelection();
+                                        console.log("last click:"+clickCounter);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+
+        });
+
+        if (isComputerTurn) {
+            var possibleMoves = [1,3,7,9,5];
+            $("#btn" + possibleMoves[Math.floor(Math.random() * 5)]).trigger("click");
+        }
+
+    }
+
 
 
 });
